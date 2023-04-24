@@ -7,8 +7,8 @@ let baiscData = {
   main: {
     id : "main",
     type : "div",
-    // children : null
-    children : 'null'
+    children : null
+    // children : 'null'
   },
   footer: {
     id : "footer",
@@ -17,19 +17,26 @@ let baiscData = {
     // test: "되냐?"
   }
 }
-
+// 배열은 어디에 사용하나요?
 let elementData = ["게시판", "수업과제", "사용자", "성적", "로그아웃"];
 
 function exampleOne(object, array) {
 // console.log(baiscData.footer.children)
-let values = ['header', 'main', 'footer'];
-for(let i=0; i<values.length; i++) {
+const basicDataValues = Object.keys(baiscData)
+// console.log(basicDataValues)
+for(let i=0; i<basicDataValues.length; i++) {
   // null 찾기
 //  console.log(baiscData[values[i]].children);
-  if(baiscData[values[i]].children === null) {
+  if(baiscData[basicDataValues[i]].children === null) {
     console.log("children 속성은 null 입니다")
+    // console.log(baiscData[basicDataValues[i]].id)
+    const tagName = baiscData[basicDataValues[i]].id
+    const element = document.createElement(tagName);
+    document.body.appendChild(element)
+    
+
   } else {
-    console.log(values[i]+"의 children 속성이 null이 아닙니다")
+    console.log(basicDataValues[i]+"의 children 속성이 null이 아닙니다")
   }
  
 }
@@ -55,3 +62,17 @@ console.log(exampleOne(baiscData, elementData));
 //     console.log(baiscDataChildren)
 //   }
 // }
+
+// function test(tagName) {
+//   const element = document.createElement(tagName);
+  // 위 코드가 동작하려면 tagName에 대한 정의를 해줘야 함
+// }
+// ex1 -> 선언하면서 div을 만들거야
+// test("div")
+// ex2 -> 미리 있는 데이터를 사용할거야 
+// tagName = "div";
+// test(tagName)
+// 이렇게 함수를 만든다고 가정했을 때
+// tagName을 가져와서 함수를 실행하잖아요
+// 근데 tagName이 문자열이든 뭐든 선언이나 호출을 해줘야하는데
+// tagName에 대한내용이 해경씨 코드에서 안보이는 것 같아요
