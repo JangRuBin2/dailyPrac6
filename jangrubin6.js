@@ -22,17 +22,23 @@ let elementData = ["게시판", "수업과제", "사용자", "성적", "로그�
 
 function exampleOne(object, array) {
 // console.log(baiscData.footer.children)
-const basicDataValues = Object.keys(baiscData)
+const basicDataKeys = Object.keys(baiscData)
 // console.log(basicDataValues)
-for(let i=0; i<basicDataValues.length; i++) {
+for(let i=0; i<basicDataKeys.length; i++) {
   // null 찾기
 //  console.log(baiscData[values[i]].children);
-  if(baiscData[basicDataValues[i]].children === null) {
+  if(baiscData[basicDataKeys[i]].children === null) {
     console.log("children 속성은 null 입니다")
-    // console.log(baiscData[basicDataValues[i]].id)
-    const tagName = baiscData[basicDataValues[i]].id
+    // console.log(baiscData[basicDataValues[i]])
+    let tagName = baiscData[basicDataKeys[i]].type
     const element = document.createElement(tagName);
     document.body.appendChild(element)
+    // assign에 객체 형태로 데이터를 담아야한다는데 태그 생성을 하고도 assign이 안먹어서 잘 모르겟음..
+    // header, main, footer 객체 넘어오는 것 확인
+    // console.log(baiscData[basicDataKeys[i]])
+
+    Object.assign(element, baiscData[basicDataKeys[i]])
+   
     
 
   } else {
