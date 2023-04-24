@@ -7,7 +7,8 @@ let baiscData = {
   main: {
     id : "main",
     type : "div",
-    children : null
+    // children : null
+    children : 'null'
   },
   footer: {
     id : "footer",
@@ -27,7 +28,9 @@ for(let i=0; i<values.length; i++) {
 //  console.log(baiscData[values[i]].children);
   if(baiscData[values[i]].children === null) {
     console.log("children 속성은 null 입니다")
-  } 
+  } else {
+    console.log(values[i]+"의 children 속성이 null이 아닙니다")
+  }
  
 }
   // basic 객체의 children 속성이 null 데이터 타입이 할당되있는지를 판별하고
